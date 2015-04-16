@@ -45,13 +45,24 @@ class CasabaOrder(object):
     imported = True
     shape = 'natural'
     seasons = ['Spring', 'Winter', 'Fall', 'Summer']
-    price = (BASE_PRICE + 1) * 1.5
+    price = BASE_PRICE
     #qty = 0
 
     def get_price(self, qty):
         """Calculate price, given a number of melons ordered."""
 
         #qty * price
+
+        price = self.price
+
+        #for order in get_price:
+        if self.species == "Casaba" or "Ogen":
+            price = price + 1
+        elif self.imported == True:
+            price = price * 1.5
+        elif self.shape == 'square':
+            price = price * 2
+
         total = self.price * qty 
         #total = 0   # TODO, calculate the real amount!
 
